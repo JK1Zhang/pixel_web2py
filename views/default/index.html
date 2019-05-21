@@ -1,0 +1,68 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; height =100% ;  word-wrap:break-word;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+<div class="row">
+  <div class="col-md-12">
+  <div class="container center">
+      {{if 'message' in globals():}}
+        <h1>{{=message}}</h>
+        <p class="lead">{{=T('春季数据库课程作业 ')}}</p>
+  </div>
+     <div class="container center">
+      <li>{{=T('此平台依托于web2py框架')}}</li>
+      <li>{{=T('作者：张家坤，PB16111289')}}</li>
+      <li>{{=XML(T('您目前在访问 %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+      <!--<li>{{=XML(T('Which called the function %s located in the file %s',
+        (A(request.function+'()',_href='#'),
+        A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
+        _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
+      <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
+        A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
+        _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
+      <li>{{=T('You can modify this application and adapt it to your needs')}}</li>-->
+    </div>
+    <div class="jumbotron jumbotron-fluid" style="padding:30px;word-wrap:break-word;" >
+      <div class="container center">
+        <a class="btn btn-primary" href="{{=URL('admin','default','index')}}">
+          <i class="fa fa-cog"></i>
+          {{=T("admin")}}
+        </a>
+          
+         <a class="btn btn-primary" href="{{=URL('myapp','appadmin','index')}}">
+          <i class="fa fa-cog"></i>
+          {{=T("database")}}
+        </a>
+         <a class="btn btn-secondary" href="/myapp/default/upload">上传</a>
+         <a class="btn btn-secondary" href="/myapp/default/look">浏览</a>
+        <!--<a class="btn btn-secondary" href="{{=URL('examples','default','index')}}">{{=T("Online examples")}}</a>
+        <a class="btn btn-secondary" href="http://web2py.com">web2py.com</a>
+        <a class="btn btn-secondary" href="http://web2py.com/book">{{=T('Documentation')}}</a>
+        <a class="btn btn-secondary" href="{{=URL('default','api_get_user_email')}}">{{=T('API Example')}}</a>
+        <a class="btn btn-secondary" href="{{=URL('default','grid/auth_user')}}">{{=T('Grid Example')}}</a>
+        <a class="btn btn-secondary" href="{{=URL('default','wiki')}}">{{=T('Wiki Example')}}</a>-->
+      </div>
+    </div>
+     </div>
+{{end}}
+    {{elif 'content' in globals():}}
+    {{=content}}
+    {{else:}}
+    {{=BEAUTIFY(response._vars)}}
+    {{pass}}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+    <h1 class="display-5">图片浏览</h1>
+</div>
+{{end}}
+<ul>
+ {{for image in images:}}
+    <img width="500px"
+src="{{=URL('download', args=image.file)}}" />
+ {{=LI(A(image.title, _href=URL("show", args=image.id)))}}
+ {{pass}}
+ </ul>

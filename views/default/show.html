@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+{{block header}}
+<div class="jumbotron jumbotron-fluid background" style="background-color: #333; color:white; padding:30px;word-wrap:break-word;">
+    <h1>{{=image.title}}</h1>
+</div>
+{{end}}
+
+
+
+<center>
+<img width="500px"
+src="{{=URL('download', args=image.file)}}" />
+
+<h3>发布者:<font color="blue">{{=image.author_name}}</font></h3>
+    
+    
+{{if len(comments):}}
+    <h2>Comments</h2><br /><p>
+    {{for comment in comments:}}
+        <p><font color="blue"> {{=comment.author}} </font>   评论: <font color="blue"><i>{{=comment.body}}</i></font></p>
+    {{pass}}</p>
+{{else:}}
+    <h2>No comments posted yet</h2>
+{{pass}}
+<h2>发表评论</h2>
+{{=form}}
+</center>
